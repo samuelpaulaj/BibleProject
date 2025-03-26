@@ -1,0 +1,70 @@
+// .indexcontent {
+//   display: flex;
+//   height: 100vh;
+//   background-color: #e0e3ed;
+//   padding-bottom: 8em;
+//   overflow: hidden;
+//   border-radius: 8px;
+// }
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loanAppContentArea {
+  &__container {
+    display: flex;
+    height: calc(100vh - 337px);
+    width: 100dvw;
+    background-color: white;
+  }
+  &__mainArea {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+  }
+  &__formContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1em;
+    gap: 4em;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.contentArea {
+  &__container {
+    display: flex;
+    height: 100%;
+    width: 100dvw;
+  }
+  &__mainArea {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+  }
+  &__formContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1em;
+    gap: 4em;
+  }
+  &__formContainer::-webkit-scrollbar {
+    display: none;
+  }
+}
