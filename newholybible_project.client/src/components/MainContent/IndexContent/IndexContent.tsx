@@ -23,7 +23,7 @@ import Genesis from "./Genesis/Genesis.tsx";
 import "./IndexContent.scss";
 
 const IndexContent = () => {
-  const observer = useRef<IntersectionObserver>();
+  const observer = useRef<IntersectionObserver | null>(null);
   const { setCurrentSubSection } = useSideNavStore();
   // const { getCurrentPair } = useMasterStore();
   // const form = useForm<Borrowers>({

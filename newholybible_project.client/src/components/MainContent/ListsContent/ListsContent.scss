@@ -1,8 +1,12 @@
 .listcontent {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   background-color: #e0e3ed;
   padding-bottom: 8em;
   overflow: hidden;
   border-radius: 8px;
+  box-sizing: border-box;
+  margin-left: 10%;
+  margin-right: 10%;
 }
