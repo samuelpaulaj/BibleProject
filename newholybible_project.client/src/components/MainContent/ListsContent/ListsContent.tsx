@@ -1,16 +1,14 @@
 import { Box, Divider, Typography } from "@mui/material";
 import "./ListsContent.scss";
-import { useForm } from "react-hook-form";
-import { DateInputField } from "../../Common/DateInputField";
+import DateSection from "./DateSection/DateSection";
+import { useEffect } from "react";
+import { getQuestionsHandler } from "../../../api/getQuestionsHandler";
+import { QuestionForm } from "./QuestionForm/QuestionForm";
 
 const ListsContent = () => {
-  const form = useForm({
-    defaultValues: {
-      date: null,
-    },
-  });
-
-  const { control } = form;
+  useEffect(() => {
+    getQuestionsHandler();
+  }, []);
   return (
     <Box className="listcontent">
       <div
@@ -31,36 +29,8 @@ const ListsContent = () => {
           margin: "20px 0",
         }}
       />
-      <div
-        style={{
-          display: "flex",
-          // justifyContent: "left",
-          // alignItems: "center",
-          // height: "100%",
-        }}
-      >
-        <div style={{ marginLeft: "20px" }}>
-          <Typography variant="h5" className="listcontent__subtitle">
-            Select the date :
-          </Typography>
-        </div>
-        <div>
-          <DateInputField
-            control={control}
-            name="date"
-            required={true}
-            disabled={false}
-            placeholder="Select date"
-            onChangeCallback={(date: any) => {
-              console.log(date);
-            }}
-            message={{
-              errorMessage: "Please select a date",
-              helperText: "This is a required field",
-            }}
-          />
-        </div>
-      </div>
+      <DateSection />
+      <QuestionForm />
     </Box>
   );
 };

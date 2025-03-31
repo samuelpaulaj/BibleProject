@@ -6,7 +6,7 @@ namespace NewHolybible_Project.Server.RequestHelpers
     public static class MappingProfiles
     {
         //Dto to Entity - Receiving data from client
-   
+
 
         //Entity to Dto - Sending data to client
         public static List<QuestionDto> MapToQuestionDtoList(List<Question> questions)
@@ -15,10 +15,7 @@ namespace NewHolybible_Project.Server.RequestHelpers
             {
                 Id = q.Id,
                 QuestionText = q.QuestionText,
-                Choices = q.Choices.Select(c => new ChoiceDto
-                {
-                    ChoiceText = c.ChoiceText
-                }).ToList(),
+                Choices = q.Choices.Select(c => c.ChoiceText).ToList(),
                 DateCreated = q.DateCreated.ToDateTime(TimeOnly.MinValue)
             }).ToList();
         }

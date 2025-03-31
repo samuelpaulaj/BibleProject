@@ -1,18 +1,15 @@
 import { create } from "zustand";
 
-interface Choice {
-  choiceText: string;
-}
-
 interface Question {
   id: number;
   questionText: string;
-  choices: Choice[];
+  choices: string[];
   dateCreated: string;
 }
 
 interface QuestionStore {
   questions: Question[];
+  setQuestions: (questions: Question[]) => void;
   addQuestion: (question: Question) => void;
   removeQuestion: (id: number) => void;
   updateQuestion: (id: number, updatedQuestion: Partial<Question>) => void;
@@ -23,26 +20,22 @@ const useQuestionStore = create<QuestionStore>((set) => ({
     {
       id: 1,
       questionText: "மத்தேயு 15:8 பதில் யாருக்கு கூறப்பட்டது?",
-      choices: [
-        { choiceText: "யூதர்கள்" },
-        { choiceText: "பரிசேயர்கள்" },
-        { choiceText: "சீஷர்கள்" },
-        { choiceText: "பிலாத்து" },
-      ],
+      choices: ["யூதர்கள்", "பரிசேயர்கள்", "சீஷர்கள்", "பிலாத்து"],
       dateCreated: "2025-03-25T00:00:00",
     },
     {
       id: 2,
       questionText: "யார் பரலோக ராஜ்ஜியத்தில் பிரவேசிப்பார்கள்?",
       choices: [
-        { choiceText: "கிறிஸ்துவின் சபையார்கள் அனைவரும்" },
-        { choiceText: "தீர்க்கதரிசனம் உரைப்பவர்கள்" },
-        { choiceText: "பிசாசுகளை துரத்துபவர்கள்" },
-        { choiceText: "பிதாவின் சித்தத்தின்படி செய்கிறவர்கள்" },
+        "கிறிஸ்துவின் சபையார்கள் அனைவரும்",
+        "தீர்க்கதரிசனம் உரைப்பவர்கள்",
+        "பிசாசுகளை துரத்துபவர்கள்",
+        "பிதாவின் சித்தத்தின்படி செய்கிறவர்கள்",
       ],
       dateCreated: "2025-03-25T00:00:00",
     },
   ],
+  setQuestions: (questions) => set({ questions }),
   addQuestion: (question) =>
     set((state) => ({
       questions: [...state.questions, question],

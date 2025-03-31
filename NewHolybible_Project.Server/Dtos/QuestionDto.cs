@@ -9,7 +9,7 @@ namespace NewHolybible_Project.Server.Dtos
 
         public int Id { get; set; }
         public string QuestionText { get; set; } 
-        public List<ChoiceDto> Choices { get; set; }
+        public List<string> Choices { get; set; }
         public DateTime DateCreated { get; set; }
     }
 
